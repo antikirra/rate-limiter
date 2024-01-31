@@ -1,0 +1,64 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "9c73d3ab12ab04aee55285b4ccefc55b",
+    "packages": [
+        {
+            "name": "antikirra/probability",
+            "version": "2.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/antikirra/probability.git",
+                "reference": "720db4d6dbd804c24b3abf66cbd5c112851f310d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/antikirra/probability/zipball/720db4d6dbd804c24b3abf66cbd5c112851f310d",
+                "reference": "720db4d6dbd804c24b3abf66cbd5c112851f310d",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^5.6 || ^7.0 || ^8.0"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "probability.php"
+                ],
+                "psr-4": {
+                    "Antikirra\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Kirill Tkachenko",
+                    "email": "antikirra@gmail.com"
+                }
+            ],
+            "support": {
+                "issues": "https://github.com/antikirra/probability/issues",
+                "source": "https://github.com/antikirra/probability/tree/2.0.0"
+            },
+            "time": "2024-01-30T08:31:04+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": [],
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": {
+        "php": "^7.4 || ^8.0",
+        "ext-redis": "*"
+    },
+    "platform-dev": [],
+    "plugin-api-version": "2.6.0"
+}
