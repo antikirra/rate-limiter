@@ -18,6 +18,7 @@ require __DIR__ . '/vendor/autoload.php';
 $redis = new Redis();
 $redis->connect('127.0.0.1');
 
+// maximum of three requests per minute
 $limiter = new RateLimiter($redis, "signin_by_ip{$_SERVER['REMOTE_ADDR']}", 3, 60, 0.75);
 
 $result = $limiter->check(); // returns the actual counter value without any side effects
