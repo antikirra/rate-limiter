@@ -1,4 +1,6 @@
 # [DRAFT] RateLimiter implementation for PHP
+![Packagist Dependency Version](https://img.shields.io/packagist/dependency-v/antikirra/rate-limiter/php)
+![Packagist Version](https://img.shields.io/packagist/v/antikirra/rate-limiter)
 
 ## Install
 
