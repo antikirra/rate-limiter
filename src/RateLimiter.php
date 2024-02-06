@@ -83,6 +83,28 @@ class RateLimiter
         return new RateLimiterResult($this->internalCheck($count), $count);
     }
 
+    public function unique(string $item): RateLimiterResult
+    {
+        [$currentWindowKey, $nextWindowKey] = $this->getWindowKeys();
+        $commonWindowKey = 'unique:' . hash('crc32b', microtime(true) . "{$currentWindowKey}:{$nextWindowKey}");
+
+        $window = probability($this->sliding) ? $currentWindowKey : $nextWindowKey;
+        $ttl = $window === $currentWindowKey ? $this->interval : $this->interval * 2;
+
+        [, , , $count] = $this->redis
+            ->multi()
+            ->sAdd($window, $item)
+            ->expire($window, $ttl, 'NX')
+            ->sUnionStore($commonWindowKey, $currentWindowKey, $nextWindowKey)
+            ->sCard($commonWindowKey)
+            ->del($commonWindowKey)
+            ->exec();
+
+        $count = (int)$count;
+
+        return new RateLimiterResult($this->internalCheck($count), $count);
+    }
+
     public function reset(): void
     {
         [$currentWindowKey, $nextWindowKey] = $this->getWindowKeys();
